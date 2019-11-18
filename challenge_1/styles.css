@@ -1,0 +1,29 @@
+.board {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+
+.tile {
+  height: 60px;
+  border: 1px solid;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.outcome {
+  height: 30px;
+  font-size: 25px;
+  padding-left: 45%;
+}
+
+.resetbtn {
+  height: 30px;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.reset {
+  padding-left: 44%;
+}
