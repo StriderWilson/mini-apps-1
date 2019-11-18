@@ -8,21 +8,22 @@
   </head>
   <body>
     <div class="reset">
-      <button class="resetbtn" onclick="reset()">Reset Board</button>
+      <button class="resetbtn" onclick="reset()">New Game</button>
     </div>
     <div class="board" id="board">
-        <div class="tile" id="1" onclick="toggle1()"></div>
-        <div class="tile" id="2" onclick="toggle2()"></div>
-        <div class="tile" id="3" onclick="toggle3()"></div>
-        <div class="tile" id="4" onclick="toggle4()"></div>
-        <div class="tile" id="5" onclick="toggle5()"></div>
-        <div class="tile" id="6" onclick="toggle6()"></div>
-        <div class="tile" id="7" onclick="toggle7()"></div>
-        <div class="tile" id="8" onclick="toggle8()"></div>
-        <div class="tile" id="9" onclick="toggle9()"></div>
+        <div class="tile" id="00" onclick="toggle(this)"></div>
+        <div class="tile" id="01" onclick="toggle(this)"></div>
+        <div class="tile" id="02" onclick="toggle(this)"></div>
+        <div class="tile" id="10" onclick="toggle(this)"></div>
+        <div class="tile" id="11" onclick="toggle(this)"></div>
+        <div class="tile" id="12" onclick="toggle(this)"></div>
+        <div class="tile" id="20" onclick="toggle(this)"></div>
+        <div class="tile" id="21" onclick="toggle(this)"></div>
+        <div class="tile" id="22" onclick="toggle(this)"></div>
       </div>
       <div class="outcome" id="outcome">X's turn!</div>
-
+      <div class="score" id="x">X palyer: 0</div>
+      <div class="score" id="o">O player: 0</div>
   </body>
 </html>
 

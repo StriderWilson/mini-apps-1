@@ -1,122 +1,21 @@
 var counter = 0;
 var results = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
-var toggle1 = function(event) {
-  if (counter%2 === 0 && document.getElementById('1').innerHTML === "") {
-    document.getElementById('1').innerHTML = "X";
-    results[0][0] = 1;
+var toggle = function(event) {
+  var row = parseInt(event.id[0]);
+  var col = parseInt(event.id[1]);
+  if (counter%2 === 0 && event.innerHTML === "") {
+    event.innerHTML = "X";
+    results[row][col] = 1;
     counter++;
-  } else if (counter%2 === 1 && document.getElementById('1').innerHTML === "") {
-    document.getElementById('1').innerHTML = "O";
+  } else if (counter%2 === 1 && event.innerHTML === "") {
+    event.innerHTML = "O";
     counter++;
-    results[0][0] = 5;
+    results[row][col] = 5;
   }
   turn(counter);
   winner(results);
 }
-var toggle2 = function(event) {
-  if (counter%2 === 0 && document.getElementById('2').innerHTML === "") {
-    document.getElementById('2').innerHTML = "X";
-    counter++;
-    results[0][1] = 1;
-  } else if (counter%2 === 1 && document.getElementById('2').innerHTML === "") {
-    document.getElementById('2').innerHTML = "O";
-    counter++;
-    results[0][1] = 5;
-  }
-  turn(counter);
-  winner(results);
-}
-var toggle3 = function(event) {
-  if (counter%2 === 0 && document.getElementById('3').innerHTML === "") {
-    document.getElementById('3').innerHTML = "X";
-    counter++;
-    results[0][2] = 1;
-  } else if (counter%2 === 1 && document.getElementById('3').innerHTML === "") {
-    document.getElementById('3').innerHTML = "O";
-    counter++;
-    results[0][2] = 5;
-  }
-  turn(counter);
-  winner(results);
-}
-var toggle4 = function(event) {
-  if (counter%2 === 0 && document.getElementById('4').innerHTML === "") {
-    document.getElementById('4').innerHTML = "X";
-    counter++;
-    results[1][0] = 1;
-  } else if (counter%2 === 1 && document.getElementById('4').innerHTML === "") {
-    document.getElementById('4').innerHTML = "O";
-    counter++;
-    results[1][0] = 5;
-  }
-  turn(counter);
-  winner(results);
-}
-var toggle5 = function(event) {
-  if (counter%2 === 0 && document.getElementById('5').innerHTML === "") {
-    document.getElementById('5').innerHTML = "X";
-    counter++;
-    results[1][1] = 1;
-  } else if (counter%2 === 1 && document.getElementById('5').innerHTML === "") {
-    document.getElementById('5').innerHTML = "O";
-    counter++;
-    results[1][1] = 5;
-  }
-  turn(counter);
-  winner(results);
-}
-var toggle6 = function(event) {
-  if (counter%2 === 0 && document.getElementById('6').innerHTML === "") {
-    document.getElementById('6').innerHTML = "X";
-    counter++;
-    results[1][2] = 1;
-  } else if (counter%2 === 1 && document.getElementById('6').innerHTML === "") {
-    document.getElementById('6').innerHTML = "O";
-    counter++;
-    results[1][2] = 5;
-  }
-  turn(counter);
-  winner(results);
-}
-var toggle7 = function(event) {
-  if (counter%2 === 0 && document.getElementById('7').innerHTML === "") {
-    document.getElementById('7').innerHTML = "X";
-    counter++;
-    results[2][0] = 1;
-  } else if (counter%2 === 1 && document.getElementById('7').innerHTML === "") {
-    document.getElementById('7').innerHTML = "O";
-    counter++;
-    results[2][0] = 5;
-  }
-  turn(counter);
-  winner(results);
-}
-var toggle8 = function(event) {
-  if (counter%2 === 0 && document.getElementById('8').innerHTML === "") {
-    document.getElementById('8').innerHTML = "X";
-    counter++;
-    results[2][1] = 1;
-  } else if (counter%2 === 1 && document.getElementById('8').innerHTML === "") {
-    document.getElementById('8').innerHTML = "O";
-    counter++;
-    results[2][1] = 5;
-  }
-  turn(counter);
-  winner(results);
-}
-var toggle9 = function(event) {
-  if (counter%2 === 0 && document.getElementById('9').innerHTML === "") {
-    document.getElementById('9').innerHTML = "X";
-    counter++;
-    results[2][2] = 1;
-  } else if (counter%2 === 1 && document.getElementById('9').innerHTML === "") {
-    document.getElementById('9').innerHTML = "O";
-    counter++;
-    results[2][2] = 5;
-  }
-  turn(counter);
-  winner(results);
-}
+
 var turn = function(num) {
   if (num%2 === 0) {
     document.getElementById('outcome').innerHTML = "X's turn!";
@@ -152,17 +51,17 @@ var winner = function(arr) {
     document.getElementById('outcome').innerHTML = "O Wins!!";
   }
 }
-var reset = function() {
-  document.getElementById('1').innerHTML = "";
-  document.getElementById('2').innerHTML = "";
-  document.getElementById('3').innerHTML = "";
-  document.getElementById('4').innerHTML = "";
-  document.getElementById('5').innerHTML = "";
-  document.getElementById('6').innerHTML = "";
-  document.getElementById('7').innerHTML = "";
-  document.getElementById('8').innerHTML = "";
-  document.getElementById('9').innerHTML = "";
-  document.getElementById('outcome').innerHTML = "";
+var reset = function(e) {
+  document.getElementById('00').innerHTML = "";
+  document.getElementById('01').innerHTML = "";
+  document.getElementById('02').innerHTML = "";
+  document.getElementById('10').innerHTML = "";
+  document.getElementById('11').innerHTML = "";
+  document.getElementById('12').innerHTML = "";
+  document.getElementById('20').innerHTML = "";
+  document.getElementById('21').innerHTML = "";
+  document.getElementById('22').innerHTML = "";
+  document.getElementById('outcome').innerHTML = "X's turn!";
   counter = 0;
   results = [[0,0,0], [0,0,0], [0,0,0]];
 }
