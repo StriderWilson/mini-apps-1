@@ -10,6 +10,12 @@
     <div class="reset">
       <button class="resetbtn" onclick="reset()">New Game</button>
     </div>
+    <div>
+        <input> X:</input><span id="x"> </span>
+      </div>
+      <div>
+          <input> O:</input><span id="o"> </span>
+      </div>
     <div class="board" id="board">
         <div class="tile" id="00" onclick="toggle(this)"></div>
         <div class="tile" id="01" onclick="toggle(this)"></div>
@@ -22,12 +28,6 @@
         <div class="tile" id="22" onclick="toggle(this)"></div>
       </div>
       <div class="outcome" id="outcome">X's turn!</div>
-      <div>
-        <input> X:</input><span id="x"> </span>
-      </div>
-      <div>
-          <input> O:</input><span id="o"> </span>
-      </div>
   </body>
 </html>
 
