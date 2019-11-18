@@ -1,19 +1,23 @@
-var counter = 0;
-var results = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+var state = {
+  counter: 0,
+  results: [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
+  o: false
+}
+
 var toggle = function(event) {
   var row = parseInt(event.id[0]);
   var col = parseInt(event.id[1]);
-  if (counter%2 === 0 && event.innerHTML === "") {
+  if (state.counter%2 === 0 && event.innerHTML === "") {
     event.innerHTML = "X";
-    results[row][col] = 1;
-    counter++;
-  } else if (counter%2 === 1 && event.innerHTML === "") {
+    state.results[row][col] = 1;
+    state.counter++;
+  } else if (state.counter%2 === 1 && event.innerHTML === "") {
     event.innerHTML = "O";
-    counter++;
-    results[row][col] = 5;
+    state.counter++;
+    state.results[row][col] = 5;
   }
-  turn(counter);
-  winner(results);
+  turn(state.counter);
+  winner(state.results);
 }
 
 var turn = function(num) {
@@ -28,27 +32,39 @@ var winner = function(arr) {
   for (var i = 0; i < arr.length; i++) {
     if (arr[i][0] + arr[i][1] + arr[i][2] === 3) {
       document.getElementById('outcome').innerHTML = "X Wins!!";
+      document.getElementById('x').innerHTML += 'I';
     } else if (arr[i][0] + arr[i][1] + arr[i][2] === 15) {
       document.getElementById('outcome').innerHTML = "O Wins!!";
+      document.getElementById('o').innerHTML += 'I';
+      state.o = true;
     }
   }
   for (var h = 0; h < arr.length; h++) {
     if (arr[0][h] + arr[1][h] + arr[2][h] === 3) {
       document.getElementById('outcome').innerHTML = "X Wins!!";
+      document.getElementById('x').innerHTML += 'I';
     } else if (arr[0][h] + arr[1][h] + arr[2][h] === 15) {
       document.getElementById('outcome').innerHTML = "O Wins!!";
+      document.getElementById('o').innerHTML += 'I';
+      state.o = true;
     }
   }
   if (arr[0][0] + arr[1][1] + arr[2][2] === 3) {
     document.getElementById('outcome').innerHTML = "X Wins!!";
+    document.getElementById('x').innerHTML += 'I';
   } else if (arr[0][0] + arr[1][1] + arr[2][2] === 15) {
     document.getElementById('outcome').innerHTML = "O Wins!!";
+    document.getElementById('o').innerHTML += 'I';
+    state.o = true;
   }
 
   if (arr[0][2] + arr[1][1] + arr[2][0] === 3) {
     document.getElementById('outcome').innerHTML = "X Wins!!";
+    document.getElementById('x').innerHTML += 'I';
   } else if (arr[0][2] + arr[1][1] + arr[2][0] === 15) {
     document.getElementById('outcome').innerHTML = "O Wins!!";
+    document.getElementById('o').innerHTML += 'I';
+    state.o = true;
   }
 }
 var reset = function(e) {
@@ -61,7 +77,13 @@ var reset = function(e) {
   document.getElementById('20').innerHTML = "";
   document.getElementById('21').innerHTML = "";
   document.getElementById('22').innerHTML = "";
-  document.getElementById('outcome').innerHTML = "X's turn!";
-  counter = 0;
-  results = [[0,0,0], [0,0,0], [0,0,0]];
+  if (state.o === true) {
+    document.getElementById('outcome').innerHTML = "0's turn!";
+    state.counter = 1
+  } else {
+    document.getElementById('outcome').innerHTML = "X's turn!";
+    state.counter = 0;
+  }
+  state.o = false;
+  state.results = [[0,0,0], [0,0,0], [0,0,0]];
 }
