@@ -6,37 +6,16 @@
   </head>
   <body>
     <h1>Request CSV Report</h1>
-    <form >
+    <form action='/form' method="post">
+      <label>Employee Info: </label>
       <div>
-        <label>First Name: </label>
-        <input type="text" id="firstname" name="firstname">
+        <textarea type="text" id="info" name="info" value=""></textarea>
       </div>
       <div>
-        <label>Last Name: </label>
-        <input type="text" id="lastname" name="lastname">
+        <input type="submit" id="submit" name="submit" value="Submit Request" >
       </div>
-      <div>
-        <label>County:</label>
-        <input type="text" id="county" name="county">
-      </div>
-      <div>
-        <label>City:</label>
-        <input type="text" id="city" name="city">
-      </div>
-      <div>
-        <label>Role:</label>
-        <input type="text" id="role" name="role">
-      </div>
-      <div>
-        <label>Sales:</label>
-        <input type="text" id="sales" name="sales">
-      </div>
-      <div>
-        <input type="button" id="submit" name="submit" value="Submit Request">
-      </div>
-
     </form>
-    <script></script>
+    <script src="./app.js"></script>
   </body>
 </html>
 
