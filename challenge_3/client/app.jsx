@@ -1,2 +1,1 @@
-
-
+ReactDOM.render(<h1>Go Home World</h1>, document.getElementById('app'));
