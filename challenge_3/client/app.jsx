@@ -48,7 +48,14 @@ class FormOne extends React.Component {
     e.preventDefault()
     this.setState({password: e.target.value})
   }
-  formOneNext() {
+  formOneNext(e) {
+    e.preventDefault()
+    $.ajax({
+      type: 'POST',
+      url: '/user',
+      data: this.state,
+      success: console.log('successful post')
+    })
     ReactDOM.render(<FormTwo />, document.getElementById('app'));
   }
 
@@ -242,7 +249,7 @@ class Confirmation extends React.Component {
     return(
       <div>
         <h1>Confirmation:</h1>
-        <button onClick={this.handlePurchase}>Checkout</button>
+        <button onClick={this.handlePurchase}>Purchase</button>
       </div>
     )
   }
