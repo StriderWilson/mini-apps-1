@@ -2,6 +2,7 @@ const express = require('express');
 const { $ } = require('jquery')
 const app = express();
 const port = 3000;
+const path = require('path')
 const bodyParser = require('body-parser');
 const csv = require('csv-parser');
 const fs = require('fs');
@@ -22,17 +23,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('client'));
 app.post('/form', (req, res) => {
   var input = [JSON.parse(req.body.info)];
-  var result = []
   csvWriter
   .writeRecords(input)
   .then(() => fs.createReadStream('./samples/csv_report.csv')
   .pipe(csv())
   .on('data', (row) => {
-    result.push(row);
+    console.log(row);
   })
   .on('end', () => {
-    var info = JSON.stringify(result).split(',').join('\n');
-    res.send(info + form);
+    res.sendFile(path.join(__dirname, './samples/csv_report.csv'), form);
   }))
 
 
