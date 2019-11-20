@@ -1,0 +1,23 @@
+form {
+  /* Center the form on the page */
+  width: 400px;
+  /* Form outline */
+  padding: 1em;
+  border: 1px solid #CCC;
+  border-radius: 1em;
+}
+
+form div + div {
+  margin-top: 1em;
+}
+
+label {
+  /* Uniform size & alignment */
+  display: inline-block;
+  width: 100px;
+  text-align: right;
+}
+
+button {
+  margin: 5px;
+}
