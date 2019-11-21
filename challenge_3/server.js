@@ -9,6 +9,14 @@ app.post('/user', (req, res) => {
   console.log(req.body)
   res.send(req.body)
 })
+app.post('/address', (req, res) => {
+  console.log(req.body)
+  res.send(req.body)
+})
+app.post('/credit', (req, res) => {
+  console.log(req.body)
+  res.send(req.body)
+})
 
 app.listen(port, () => console.log('Listening on port 3000'));
 

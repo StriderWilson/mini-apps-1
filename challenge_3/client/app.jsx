@@ -55,7 +55,7 @@ class FormOne extends React.Component {
       url: '/user',
       data: this.state,
       success: console.log('successful post')
-    })
+    });
     ReactDOM.render(<FormTwo />, document.getElementById('app'));
   }
 
@@ -129,6 +129,12 @@ class FormTwo extends React.Component {
     this.setState({phone: e.target.value})
   }
   formTwoNext() {
+    $.ajax({
+      type: 'POST',
+      url: '/address',
+      data: this.state,
+      success: console.log('successful post')
+    });
     ReactDOM.render(<FormThree />, document.getElementById('app'));
   }
 
@@ -202,6 +208,12 @@ class FormThree extends React.Component {
     this.setState({state: e.target.value})
   }
   formThreeNext() {
+    $.ajax({
+      type: 'POST',
+      url: '/address',
+      data: this.state,
+      success: console.log('successful post')
+    });
     ReactDOM.render(<Confirmation />, document.getElementById('app'));
   }
 
